@@ -61,7 +61,7 @@ commit para que se guarde en el repositorio local.*/
 
     }
 
-    public static boolean tamañoValido(int tamaño) {
+    public static boolean tamañoValido(int tamaño) { //validacion hecha en el punto 6
         if (tamaño > 10 || tamaño < 1) {
             return false;
         }
