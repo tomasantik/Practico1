@@ -23,15 +23,19 @@ public class ProgramaArrays {
 array y después los muestre ordenados de menor a mayor. Hacer
 commit para que se guarde en el repositorio local.*/
         Scanner sc = new Scanner(System.in);
-        int numeros[] = new int[10];
-        int aux;
 
+        int aux, tamaño;
+        do {
+            System.out.println("Anota cuantos numeros quieres anotar, maximo 10:");
+            tamaño = sc.nextInt();
+        } while (tamañoValido(tamaño) == false);
+        int numeros[] = new int[tamaño];
         for (int i = 0; i < numeros.length; i++) {
             do {
                 System.out.println("Anota un numero");
                 aux = sc.nextInt();
-            } while (numeroValido(numeros, aux)==false);
-            numeros[i]=aux;
+            } while (numeroValido(numeros, aux) == false);
+            numeros[i] = aux;
         }
         sort(numeros);
 
@@ -49,6 +53,13 @@ commit para que se guarde en el repositorio local.*/
         }
         return true;
 
+    }
+
+    public static boolean tamañoValido(int tamaño) {
+        if (tamaño > 10 || tamaño < 1) {
+            return false;
+        }
+        return true;
     }
 
 }
