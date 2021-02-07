@@ -24,7 +24,7 @@ array y después los muestre ordenados de menor a mayor. Hacer
 commit para que se guarde en el repositorio local.*/
         Scanner sc = new Scanner(System.in);
 
-        int aux, tamaño;
+        int aux, tamaño, numero;
         do {
             System.out.println("Anota cuantos numeros quieres anotar, maximo 10:");
             tamaño = sc.nextInt();
@@ -38,7 +38,13 @@ commit para que se guarde en el repositorio local.*/
             numeros[i] = aux;
         }
         sort(numeros);
-
+        System.out.println("anota un numero para saber si esta en el array:");
+        numero = sc.nextInt();
+        if (buscarNumero(numeros, numero) == false) {
+            System.out.println("el numero no esta en el array");
+        } else {
+            System.out.println("el numero esta en el array");
+        }
         for (int i = 0; i < numeros.length; i++) {
             System.out.println(numeros[i]);
         }
@@ -60,6 +66,15 @@ commit para que se guarde en el repositorio local.*/
             return false;
         }
         return true;
+    }
+
+    public static boolean buscarNumero(int v[], int numero) {
+        for (int i = 0; i < v.length; i++) {
+            if (v[i] == numero) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
