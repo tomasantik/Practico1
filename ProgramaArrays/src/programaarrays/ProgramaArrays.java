@@ -24,16 +24,31 @@ array y después los muestre ordenados de menor a mayor. Hacer
 commit para que se guarde en el repositorio local.*/
         Scanner sc = new Scanner(System.in);
         int numeros[] = new int[10];
+        int aux;
 
         for (int i = 0; i < numeros.length; i++) {
-            System.out.println("Anota un numero");
-            numeros[i] = sc.nextInt();
+            do {
+                System.out.println("Anota un numero");
+                aux = sc.nextInt();
+            } while (numeroValido(numeros, aux)==false);
+            numeros[i]=aux;
         }
         sort(numeros);
 
         for (int i = 0; i < numeros.length; i++) {
             System.out.println(numeros[i]);
         }
+
+    }
+
+    public static boolean numeroValido(int v[], int numero) {
+        for (int i = 0; i < v.length; i++) {
+            if (v[i] == numero) {
+                return false;
+            }
+        }
+        return true;
+
     }
 
 }
